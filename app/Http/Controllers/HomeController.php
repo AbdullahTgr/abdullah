@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 
+use TCG\Voyager\Facades\Voyager;
 class HomeController extends Controller
 {
     /**
@@ -13,16 +15,20 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
-     * Show the application dashboard.
+     * Show the application dashboard. 
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
     {
-        return view('home');
+        $posts = Voyager::model('Post')->get();
+        $categories = Voyager::model('Category')->get();
+
+       return view('home',compact('posts','categories')); 
     }
 }
+ 

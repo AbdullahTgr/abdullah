@@ -24,6 +24,9 @@
                       <a class="nav-link page-scroll" href="#services">Services</a>
                   </li>
                   <li class="nav-item">
+                      <a class="nav-link page-scroll" href="#portfolio">Portfolio</a>
+                  </li>
+                  <li class="nav-item">
                       <a class="nav-link page-scroll" href="#contact">Contact</a>
                   </li>
               </ul>

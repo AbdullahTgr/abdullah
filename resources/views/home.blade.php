@@ -8,7 +8,9 @@
           <div class="row">
               <div class="col-lg-6">
                   <div class="text-container">
-                      <h1 class="h1-large">I love to create beautiful and efficient websites</h1>
+                      <h1 class="h1-large">
+
+                        {{  setting('site.description')}}</h1>
                       <a class="btn-solid-lg page-scroll" href="#about">Discover</a>
                       <a class="btn-outline-lg page-scroll" href="#contact"><i class="fas fa-user"></i>Contact Me</a>
                   </div> <!-- end of text-container -->
@@ -119,6 +121,11 @@
                             <img src="images/details-icon-ajax.png" alt="alternative">
                             <img src="images/details-icon-mysql.png" alt="alternative">
                             
+                            <img src="images/details-icon-laravel.png" alt="alternative">
+                            <img src="images/details-icon-nodejs.png" alt="alternative">
+                            <img src="images/details-icon-ajax.png" alt="alternative">
+                            <img src="images/details-icon-mysql.png" alt="alternative">
+                            
                           </div> <!-- end of icons-container -->
                           <br>
                           <h5>DESIGN TOOLS</h5>
@@ -132,6 +139,80 @@
   </div> <!-- end of area-2 -->
   </div> <!-- end of split -->
   <!-- end of details -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Portfolio Section Begin -->
+    <section id="portfolio" class="portfolio spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="portfolio__filter">
+                        <li class="active" data-filter="*">All</li>
+                        
+                @foreach ($categories as $category)
+
+                <li data-filter=" .f{{ $category->id }}">{{ $category->name }}</li>
+                @endforeach
+                    </ul>
+                </div> 
+            </div>
+            <div class="row portfolio__gallery">
+                @foreach ($posts as $post)
+                     <div class="col-lg-4 col-md-6 col-sm-6 mix f{{ $post->category_id }}">
+                    <div class="portfolio__item">
+                        <div class="portfolio__item__video set-bg" style="background-size: 100%;" data-setbg="{{ str_replace("\\",'/',asset('storage/'.$post->image)) }}">
+                            <a href="{{ $post->slug }}" class="play-btn video-popup"><i
+                                    class="fa fa-play"></i></a>
+                                    {{-- <li>{!! $post->body !!}</li> --}}
+                        </div>
+                        <div class="portfolio__item__text">
+                            <h4>{{ $post->title }}</h4>
+                            {{-- <ul>
+                                <li>{!! $post->seo_title !!}</li>
+                                <li>{!! $post->meta_description !!}</li>
+                            </ul> --}}
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+               
+        </div>
+    </section>
+    <!-- Portfolio Section End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   <!-- Projects -->
